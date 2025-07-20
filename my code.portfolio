@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astha Chakravarti - Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; 
+            color: #1a202c;
+            background: linear-gradient(120deg, #f7f9fc 60%, #e0e7ff 100%);
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        header {
+            background: linear-gradient(90deg, #0066cc 60%, #00b4d8 100%);
+            color: white;
+            padding: 60px 20px 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            position: relative;
+            z-index: 2;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+        header img {
+            border-radius: 50%;
+            margin-top: 18px;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        header img:hover {
+            transform: scale(1.06) rotate(-2deg);
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.1em;
+        }
+        .hero-desc {
+            font-size: 1.25em;
+            margin-top: 0.2em;
+            color: #e0f7fa;
+        }
+        .social-links {
+            margin-top: 18px;
+        }
+        .social-links a {
+            margin: 0 12px;
+            font-size: 1.3em;
+            color: #fff;
+            background: #0096c7;
+            padding: 8px 18px 8px 16px;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0,102,204,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .social-links a:hover {
+            background: #fff;
+            color: #0096c7;
+            transform: translateY(-2px) scale(1.07);
+        }
+        main {
+            padding: 40px 24px 32px 24px;
+            max-width: 950px;
+            margin: -70px auto 0 auto;
+            background: rgba(255,255,255,0.98);
+            border-radius: 22px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+            position: relative;
+            z-index: 2;
+        }
+        section {
+            margin-bottom: 54px;
+            animation: fadeInUp 1s;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1, .hero-title {
+            color: #fff;
+        }
+        h2 {
+            color: #0066cc;
+            font-size: 1.6rem;
+            margin-top: 1.7em;
+            margin-bottom: 0.7em;
+            border-left: 5px solid #00b4d8;
+            padding-left: 12px;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            color: #0096c7;
+            margin-bottom: 0.3em;
+        }
+        ul, ol {
+            padding-left: 28px;
+            margin-top: 0.5em;
+        }
+        ul li, ol li {
+            margin-bottom: 0.4em;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #00b4d8 60%, #48cae4 100%);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0,102,204,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background: #0096c7;
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .project-card {
+            background: linear-gradient(120deg, #f1f8ff 80%, #e0e7ff 100%);
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 12px rgba(0,102,204,0.09);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(0,102,204,0.13);
+        }
+        .project-card h3 {
+            margin-top: 0;
+        }
+        .project-card a {
+            margin-top: 10px;
+        }
+        .contact-info p {
+            margin: 0.3em 0;
+        }
+        footer {
+            text-align: center;
+            padding: 28px;
+            background: linear-gradient(90deg, #eeeeee 60%, #e0e7ff 100%);
+            margin-top: 60px;
+            font-size: 1.15em;
+            color: #444;
+            border-top: 1px solid #dbeafe;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 12px 2vw 10px 2vw;
+                border-radius: 0;
+            }
+            header img {
+                width: 90px;
+                height: 90px;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <img src="C:\Users\Astha Chakravarti\Desktop\1738237670862.jpg" alt="Astha Chakravarti photo" />
+            <div class="hero-title">Astha Chakravarti</div>
+            <div class="hero-desc">Welcome to my modern portfolio website</div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/astha-chakravarti-28050a2b3" target="_blank" title="LinkedIn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="http://github.com/Astha2577" target="_blank" title="GitHub">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576 4.765-1.588 8.199-6.084 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- About Me -->
+        <section>
+            <h2>About Me</h2>
+            <p style="font-size:1.15em; line-height:1.7;">
+                Hello! I'm <strong>Astha Chakravarti</strong>, a passionate learner and developer who loves working on web and data-driven projects.<br>
+                I have a strong interest in <b>web development</b>, <b>machine learning</b>, and analyzing data to uncover insights.<br>
+                I'm always curious to learn and create meaningful projects that solve real-world problems.
+            </p>
+        </section>
+        <!-- Skills and Interests -->
+        <section>
+            <h2>Skills</h2>
+            <ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 24px;list-style:square inside;">
+                <li>HTML5 &amp; CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Machine Learning</li>
+                <li>Data Analysis</li>
+                <li>Web Development</li>
+                <li>Python</li>
+                <li>Cybersecurity</li>
+                <li>Git &amp; GitHub</li>
+            </ul>
+            <h2>Interests</h2>
+            <ol style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 24px;list-style:decimal inside;">
+                <li>Web Development</li>
+                <li>Data Science Projects</li>
+                <li>Learning New Technologies</li>
+                <li>Open Source</li>
+            </ol>
+        </section>
+        <!-- Projects -->
+        <section>
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>House Price Prediction</h3>
+                <p>
+                    A machine learning project that predicts house prices using real-world data. It applies various preprocessing techniques, exploratory data analysis, and regression algorithms.
+                </p>
+                <a class="btn" href="http://github.com/Astha2577/houseprediction-Task-1k/tree/main" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576 4.765-1.588 8.199-6.084 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View Project on GitHub
+                </a>
+            </div>
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+                <p>
+                    This very website! Designed and built from scratch using modern HTML5 and CSS3, with a focus on clean design and responsive layout.
+                </p>
+                <a class="btn" href="#" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10C22 6.477 17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8 0-1.306.417-2.518 1.126-3.535l10.409 10.409A7.963 7.963 0 0 1 12 20zm6.874-3.465L8.465 6.126A7.963 7.963 0 0 1 12 4c4.411 0 8 3.589 8 8 0 1.306-.417 2.518-1.126 3.535z"/></svg>
+                    View Live
+                </a>
+            </div>
+        </section>
+        <!-- Contact Information -->
+        <section>
+            <h2>Contact Information</h2>
+            <div class="contact-info" style="font-size:1.1em;">
+                <p><strong>Email:</strong> <a href="mailto:asthachakravarti2004@gmail.com">asthachakravarti2004@gmail.com</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/astha-chakravarti-28050a2b3" target="_blank">linkedin.com/in/astha-chakravarti</a></p>
+                <p><strong>GitHub:</strong> <a href="http://github.com/Astha2577" target="_blank">github.com/Astha2577</a></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Astha Chakravarti. All rights reserved.
+    </footer>
+</body>
+</html>
